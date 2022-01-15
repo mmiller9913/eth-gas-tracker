@@ -1,0 +1,39 @@
+.main-container {
+  text-align: center;
+  height: 100vh;
+  background-color: #0d1116;
+  padding-top: 100px;
+}
+h1, h3, p {
+  color: white;
+}
+table {
+  border-collapse: collapse;
+  margin: 20px auto;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+thead {
+  background: linear-gradient(267.45deg,#05d5ff -34.23%,#53f 99.39%);
+  color: white;
+  padding: 10px;
+}
+th {
+  font-size: 18px;
+  padding: 15px;
+}
+tbody > tr {
+  border-top: 1px solid #ccc; 
+  border-bottom: 1px solid #ccc;
+  margin: 0px;
+  padding: 15px;
+  color: white;
+}
+td {
+  padding: 6px;
+}
+.gas {
+  color: #4299E1;
+}
+.vol {
+  color: #4299E1;
+}

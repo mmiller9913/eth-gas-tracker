@@ -1,0 +1,16 @@
+{
+  "name": "eth-gas-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@alch/alchemy-web3": "^1.1.9",
+    "dotenv": "^12.0.3"
+  }
+}
