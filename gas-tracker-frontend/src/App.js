@@ -1,6 +1,7 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 import { createAlchemyWeb3 } from '@alch/alchemy-web3';
+import Me from './assets/Me.jpg';
 
 const NUM_BLOCKS = 20;
 
@@ -64,37 +65,46 @@ function App() {
 
   return (
     <div className='main-container'>
-      <h1>EIP-1559 Gas Tracker</h1>
-      {!blockHistory && <p>Data is loading...</p>}
-      {avgGas && avgBlockVolume && <h3>
-        Past {NUM_BLOCKS} Block Average: <span className='gas'>{avgGas} Gwei</span> | <span className='vol'>{avgBlockVolume}% Volume</span>
-      </h3>}
-      {blockHistory && <table>
-        <thead>
-          <tr>
-            <th>Block Number</th>
-            <th>Base Fee (Gwei)</th>
-            <th>Reward (25%)</th>
-            <th>Reward (50%)</th>
-            <th>Reward (75%)</th>
-            <th>Gas Used</th>
-          </tr>
-        </thead>
-        <tbody>
-          {blockHistory.map(block => {
-            return (
-              <tr key={block.blockNumber}>
-                <td>{block.blockNumber}</td>
-                <td>{block.baseFeePerGas}</td>
-                <td>{block.reward[0]}</td>
-                <td>{block.reward[1]}</td>
-                <td>{block.reward[2]}</td>
-                <td>{block.gasUsedRatio}%</td>
-              </tr>
-            )
-          })}
-        </tbody>
-      </table>}
+      <div className='header-container'>
+        <h1>EIP-1559 Gas Tracker</h1>
+        {!blockHistory && <p>Data is loading...</p>}
+        {avgGas && avgBlockVolume && <h3>
+          Past {NUM_BLOCKS} Block Average: <span className='gas'>{avgGas} Gwei</span> | <span className='vol'>{avgBlockVolume}% Volume</span>
+        </h3>}
+        {blockHistory && <table>
+          <thead>
+            <tr>
+              <th>Block Number</th>
+              <th>Base Fee (Gwei)</th>
+              <th>Reward (25%)</th>
+              <th>Reward (50%)</th>
+              <th>Reward (75%)</th>
+              <th>Gas Used</th>
+            </tr>
+          </thead>
+          <tbody>
+            {blockHistory.slice(0).reverse().map(block => {
+              return (
+                <tr key={block.blockNumber}>
+                  <td>{block.blockNumber}</td>
+                  <td>{block.baseFeePerGas}</td>
+                  <td>{block.reward[0]}</td>
+                  <td>{block.reward[1]}</td>
+                  <td>{block.reward[2]}</td>
+                  <td>{block.gasUsedRatio}%</td>
+                </tr>
+              )
+            })}
+          </tbody>
+        </table>}
+      </div>
+      <div className="footer-container">
+        <a
+          href={'https://www.mattmiller.app/'}
+          target="_blank"
+          rel="noreferrer"
+        ><img alt="My avatar" className="my-avatar" src={Me} /><p>Built By Matt</p></a>
+      </div>
     </div>
   );
 }
